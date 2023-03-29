@@ -3,6 +3,10 @@ import tkinter as tk
 import threading
 import time
 import keyboard
+import sys
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
 
 
 # This function is the actual EOL character remover and it is run by a separated thread.
@@ -16,14 +20,16 @@ def eol_remover(stop_flag):
     while not stop_flag.is_set():
         #print("running")
         current_copied = pyperclip.paste()
-        current_copied = current_copied.replace("\r", "").replace("\n", " ")
-        if current_copied != last_copied:
-            last_copied = current_copied
+        if str(current_copied) is not '': # do nothing if content copied to clipboard is not a text
+            
+            current_copied = current_copied.replace("\r", "").replace("\n", " ")
+            if current_copied != last_copied:
+                last_copied = current_copied
 
-            modified_last = last_copied.replace("\r", "").replace("\n", " ")
-            last_copied = modified_last
+                modified_last = last_copied.replace("\r", "").replace("\n", " ")
+                last_copied = modified_last
 
-            pyperclip.copy(last_copied)
+                pyperclip.copy(last_copied)
         time.sleep(0.1)
     print("EOLRemover stopped")
 
