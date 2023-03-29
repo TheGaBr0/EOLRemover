@@ -4,9 +4,6 @@ import threading
 import time
 import keyboard
 import sys
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
 
 
 # This function is the actual EOL character remover and it is run by a separated thread.
