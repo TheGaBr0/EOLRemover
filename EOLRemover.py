@@ -3,7 +3,6 @@ import tkinter as tk
 import threading
 import time
 import keyboard
-import sys
 
 
 # This function is the actual EOL character remover and it is run by a separated thread.
