@@ -4,12 +4,11 @@ import threading
 import time
 import keyboard
 
-
 # This function is the actual EOL character remover and it is run by a separated thread.
 # It takes as argument the stop flag, used to know whenever to continue looping or not
-# The idea is pretty simple, copy the last saved element in clipboard, remove EOL characters, check if
-# it's a new content or not, if it's new then just remove EOL characters and paste it on the clipboard.
-# loop until the stop flag is set -> aka the thread has been killed by the disable_eol_remover function.
+# The idea is pretty simple, copy the last saved element in clipboard, check if the saved element contains text,
+# remove EOL characters, check if it's a new content or not, if it's new then just remove EOL characters 
+# and paste it on the clipboard. loop until the stop flag is set -> aka the thread has been killed by the disable_eol_remover function.
 def eol_remover(stop_flag):
     global last_copied
     print("EOLRemover started")
