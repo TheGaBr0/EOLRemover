@@ -1,5 +1,5 @@
 # EOLRemover
-This code is a Python script that removes End of Line (EOL) characters from the text in the clipboard. It provides a simple Graphical User Interface (GUI) that allows the user to enable or disable the EOL remover.
+This code is a Python script that removes End of Line (EOL) characters from the text in the clipboard. It provides a simple Graphical User Interface that allows the user to enable or disable the EOL remover.
 
 # How it works
 The script uses the pyperclip library to access the clipboard content. The EOL remover function runs in a separate thread, which listens for changes in the clipboard content. Whenever new text is copied to the clipboard, the function removes any EOL characters from the text and updates the clipboard with the modified text.
