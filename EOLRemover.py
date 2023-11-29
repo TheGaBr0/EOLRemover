@@ -15,7 +15,7 @@ def eol_remover(stop_flag):
     while not stop_flag.is_set():
         #print("running")
         current_copied = pyperclip.paste()
-        if str(current_copied) is not '': # do nothing if content copied to clipboard is not a text
+        if str(current_copied) != '': # do nothing if content copied to clipboard is not a text
             
             current_copied = current_copied.replace("\r", "").replace("\n", " ")
             if current_copied != last_copied:
@@ -58,7 +58,7 @@ def disable_eol_remover():
     global last_copied
     global enable
  
-    if thread is not None:
+    if thread != None:
         if thread.is_alive():
             last_copied = None
             thread_stop_flag.set()
